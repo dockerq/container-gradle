@@ -6,7 +6,7 @@ ENV GRADLE_HOME /opt/gradle
 # ENV GRADLE_VERSION 4.4.1
 ENV GRADLE_VERSION 3.0
 
-ARG GRADLE_DOWNLOAD_SHA256=e7cf7d1853dfc30c1c44f571d3919eeeedef002823b66b6a988d27e919686389
+ARG GRADLE_DOWNLOAD_SHA256=39c906941a474444afbddc38144ed44166825acb0a57b0551dddb04bbf157f80
 RUN set -o errexit -o nounset \
     && apk add --update --no-cache bash \
 	&& echo "Installing build dependencies" \
