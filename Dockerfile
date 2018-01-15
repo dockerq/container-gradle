@@ -8,11 +8,11 @@ ENV GRADLE_VERSION 3.0
 
 ARG GRADLE_DOWNLOAD_SHA256=e7cf7d1853dfc30c1c44f571d3919eeeedef002823b66b6a988d27e919686389
 RUN set -o errexit -o nounset \
+    && apk add --update --no-cache bash \
 	&& echo "Installing build dependencies" \
 	&& apk add --no-cache --virtual .build-deps \
 		ca-certificates \
 		openssl \
-        bash \
 		unzip \
 	\
 	&& echo "Downloading Gradle" \
@@ -32,7 +32,7 @@ RUN set -o errexit -o nounset \
 	\
 	&& echo "Adding gradle user and group" \
 	&& addgroup -S -g 1000 gradle \
-	&& adduser -D -S -G gradle -u 1000 -s /bin/ash gradle \
+	&& adduser -D -S -G gradle -u 1000 -s /bin/bash gradle \
 	&& mkdir /home/gradle/.gradle \
 	&& chown -R gradle:gradle /home/gradle \
 	\
